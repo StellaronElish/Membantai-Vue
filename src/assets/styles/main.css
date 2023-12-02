@@ -31,6 +31,11 @@
     border: 1px solid #10B989; margin: 5px 0;
 }
 
+.active {
+    /* You can customize the styles for the active link here */
+    color: green;
+  }
+
 .uline-grey {
     border: 1px solid #D1D1D1; margin: 5px 0;
 }
@@ -98,6 +103,7 @@ a {
 .flex{
     flex: none;
 }
+
   
 table {
     border-collapse: collapse;
@@ -121,20 +127,33 @@ td {
     font-size: 18px;
     font-weight: bold;    
 }
-
+  
 .form-text {
     display: block;
     width: 98%;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ddd;
-    background: url("../../assets/icons/cross.svg");
-    background-position: 97% center;
-    background-repeat: no-repeat;
-    background-size: 25px;
-    margin-left: auto;
-    cursor: pointer
+    
 }
+
+.hitung-kata {
+    width: 50px;
+    position: absolute;
+    top: 35%;
+    right: 35px;
+    transform: translateY(-50%);
+
+}
+
+.icon {
+    width: 35px;
+    position: absolute;
+    top: 35%;
+    right: 35px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
 
 .form-select {
     display: block;
@@ -175,20 +194,18 @@ td {
     font-weight: 500;
 }
 
-.plano-until {
-    display: flex;
-    gap: 50px;
-}
-
 .form-gambar{
-    /* padding: 30px 1%; */
     opacity: 0;
     position: absolute;
     cursor: pointer;
 }
 
+.plannogram-img {
+    width: 30%;
+}
+
 .custom-input-label {
-    background: url("https://img.icons8.com/fluency/48/add-image.png");
+    background: url("../images/input gambar.png");
     background-repeat: no-repeat;
     background-size: 85%;
     background-position: center;

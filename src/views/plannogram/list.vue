@@ -27,7 +27,6 @@
                 </div>
             </div>
             <div class="mt50">
-                <AddPlannogram @myEvent="addPlannogram" v-show="true"></AddPlannogram>
                 <table>
                     <thead>
                         <tr>
@@ -42,10 +41,10 @@
                     <tbody>
                         <tr v-for="item of list_user" :key="item.id ">
                             <td class="center">{{ item.plannogramName }}</td>
-                            <td class="center">{{ item.username }}
+                            <td class="center">{{ item.image }}
                                 <div class="mt5">
                                     <router-link to="/edit-plannogram">
-                                        <img src="https://static.miraheze.org/tampvanwiki/0/0a/Rusdi_Omaygot.png">
+                                        <img :src=item.image alt="User Image" class="plannogram-img">
                                     </router-link>
                                 </div>
                             </td>
@@ -100,12 +99,10 @@
 
 <script>
 import Menu from "../../components/menu.vue"
-import AddPlannogram from "../plannogram/add.vue"
 export default {
 	name: 'list-plannogram',
 	components: {
-		Menu,
-        AddPlannogram
+		Menu
 	},
     data(){
         return {
@@ -113,7 +110,7 @@ export default {
                 {
                     id: "1",
                     plannogramName: "Flash Sale minggu ini",
-                    username: "",
+                    image: require('@/assets/images/flash sale.png'),
                     hari: "Senin",
                     validFrom: "01-06-2021",
                     validUntil: "03-06-2021",
@@ -122,8 +119,8 @@ export default {
                 },
                 {
                     id: "2",
-                    plannogramName: "Haifah Nur Zakiah",
-                    username: "",
+                    plannogramName: "Produk Terbaru",
+                    image: require('@/assets/images/iphone X.png'),
                     hari: "Rabu",
                     validFrom: "04-06-2021",
                     validUntil: "04-06-2021",
@@ -131,39 +128,7 @@ export default {
                     role: 2
                 }         
             ],
-            // showAddPlannogram: false
         } 
     },
-    // // created() {
-    // // // Mendengarkan event dari event bus ketika komponen di-mount
-    // // this.$root.$on("addPlannogram", this.addPlannogram);
-    // },
-    methods: {
-        addPlannogram(newPlannogramName, newHari, newValidF, newValidU) {
-      // Menambahkan plannogram baru ke daftar
-      this.list_user.push({
-        id: (this.list_user.length + 1).toString(), // ID bisa disesuaikan dengan kebutuhan
-        plannogramName: newPlannogramName,
-        username: "tes",
-        hari: newHari,
-        validFrom: newValidF,
-        validUntil: newValidU,
-        status: "tes",
-        role: (this.list_user.length + 1) // Sesuaikan dengan nilai default yang sesuai
-      });
-    //   this.showAddPlannogram = false;
-        }
-    },
-    deleteItem() {
-    this.list_user.pop();
-    },
-    // showAddPlannogram() {
-    //   // Menampilkan form Add Plannogram
-    //   this.showAddPlannogram = true;
-    // },
-    // beforeDestroy() {
-    // // Membersihkan event listener ketika komponen di-unmount
-    // this.$root.$off("addPlannogram", this.addPlannogram);
-    // }
 }
 </script>

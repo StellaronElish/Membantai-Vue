@@ -17,12 +17,13 @@
                 <div class="w20">
                     <label class="form-label">Background Image</label>
                 </div>
-                <label for="imageInput" class="custom-input-label">
+                <label for="imageInput" class="custom-input-label" :style="{ backgroundImage: previewImg ? 'url(' + previewImg + ')' : 'url(../images/input gambar.png)', backgroundSize: previewImg ? 'cover' : ''}">
                     <input
                     id="imageInput"
                     accept="image/*"
                     class="form-gambar"
                     type="file"
+                    v-on:change="upload"
                     />
                 </label>
             </div>
@@ -35,7 +36,6 @@
                         class="form-text"
                         type="text"
                         placeholder="Masukkan Plannogram Name"
-                        v-model="inputValue"
                     >
                 </div>
             </div>
@@ -48,7 +48,6 @@
                         class="form-text"
                         type="text"
                         placeholder="Pilih hari"
-                        v-model="inputHari"
                     >
                 </div>
             </div>
@@ -61,7 +60,6 @@
                         class="form-text"
                         type="text"
                         placeholder="Masukkan Tanggal"
-                        v-model="inputValidFrom"
                     >
                 </div>
             </div>
@@ -74,7 +72,6 @@
                         class="form-text"
                         type="text"
                         placeholder="Masukkan Tanggal"
-                        v-model="inputValidUntil"
                     >
                 </div>
             </div>
@@ -83,17 +80,16 @@
                     <label class="form-label">List Product</label>
                 </div>
                 <div class="w80">
-                    <select class="form-select">
-                        <option disabled selected>Pilih Product</option>
-                        <option value="1">Super Admin</option>
-                        <option value="2">Marketing</option>
-                        <option value="3">Sales</option>
-                    </select>
+                    <input
+                        class="form-text"
+                        type="text"
+                        placeholder="Pilih Product"
+                    >
                 </div>
             </div>
             <div class="flex mt30">
                 <router-link to="/list-plannogram">
-                    <button class="bt-submit-green"  @click="$emit('myEvent', inputValue, inputHari, inputValidFrom, inputValidUntil), print()">Add Plannogram</button>
+                    <button class="bt-submit-green">Add Plannogram</button>
                 </router-link>
             </div>
         </div>
@@ -104,25 +100,18 @@
 export default {
 	name: 'add-plannogram',
     data() {
-    return {
-      inputValue: '', // Properti untuk menyimpan nilai input
-      inputHari: '',
-      inputValidFrom: '',
-      inputValidUntil: '',
-    };
-  },
-  methods: {
-    addPlannogram() {
-        console.log(this.inputValue);
-        this.$root.$emit("addPlannogram", this.inputValue);
-        this.inputValue = '';
+        return {
+            gambar: '',
+            previewImg: '',
+        };
     },
-    print() {
-        console.log(this.inputValue + " " + this.inputHari + " " + this.inputValidFrom + " " + this.inputValidUntil);
-
-    }
-
-  }
-  
+    methods: {
+        upload: function(event) {
+            const nameGambar = event.target.files[0].name;
+            this.gambar = nameGambar;
+            this.previewImg = URL.createObjectURL(event.target.files[0])
+        },  
+        
+    },
 }
 </script>

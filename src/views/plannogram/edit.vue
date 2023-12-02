@@ -18,7 +18,7 @@
                     <label class="form-label">Background Image</label>
                 </div>
                 <div class="w80">
-                    <img src="https://i.ytimg.com/vi/EQU8rg5koYE/sddefault.jpg">
+                    <img src="">
                 </div>
             </div>
             <div class="mt50 row">
@@ -31,6 +31,7 @@
                         type="text"
                         placeholder="Input your full name"
                     >
+                    <img src="../../assets/icons/cross.svg" class="icon"/>
                 </div>
             </div>
             <div class="mt30 row">
@@ -43,6 +44,7 @@
                         type="text"
                         placeholder="Input your username"
                     >
+                    <img src="../../assets/icons/cross.svg" class="icon"  />
                 </div>
             </div>
             <div class="mt30 row">
@@ -55,6 +57,7 @@
                         type="text"
                         placeholder="Input your email"
                     >
+                    <img src="../../assets/icons/cross.svg"  class="icon"  />
                 </div>
             </div>
             <div class="mt30 row">
@@ -67,6 +70,7 @@
                         type="text"
                         placeholder="Input your email"
                     >
+                    <img src="../../assets/icons/cross.svg" class="icon"  />
                 </div>
             </div>
             <div class="mt30 row">
@@ -75,7 +79,7 @@
                 </div>
                 <div class="w80">
                     <select class="form-select">
-                        <option disabled selected>--- Select Role ---</option>
+                        <option disabled selected></option>
                         <option value="1">Super Admin</option>
                         <option value="2">Marketing</option>
                         <option value="3">Sales</option>
@@ -93,6 +97,13 @@
 
 <script>
 export default {
-	name: 'edit-plannogram'
+	name: 'edit-plannogram',
+    data() {
+        return {
+        
+        }
+
+    },
+    
 }
 </script>

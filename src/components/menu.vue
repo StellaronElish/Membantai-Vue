@@ -1,9 +1,9 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col center">
-                <router-link to="/list-user">
-                    <div>
+            <div class="col center" >
+                <router-link to="/list-user" >
+                    <div >
                         User<hr class="uline-green">
                     </div>
                 </router-link>
@@ -11,7 +11,7 @@
             <div class="col center">
                 <router-link to="/list-product">
                     <div>
-                        Product<hr class="uline-grey">
+                        Product<hr class="uline-grey" >
                     </div>
                 </router-link>
             </div>
@@ -29,9 +29,9 @@
                     </div>
                 </router-link>
             </div>
-            <div class="col center">
+            <div class="col center" >
                 <router-link to="/list-plannogram">
-                    <div>
+                    <div >
                         Plannogram<hr class="uline-grey">
                     </div>
                 </router-link>
@@ -61,12 +61,12 @@
     </div>
 </template>
 <script>
-    export default {
-        name: 'Menu',
-        data(){
-            return {
-                
-            }
-        },
-    }
+export default {
+  name: 'Menu',
+  data() {
+    return {
+
+    };
+  },
+};
 </script>
